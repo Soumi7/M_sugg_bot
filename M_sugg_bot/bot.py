@@ -12,10 +12,10 @@ from glob import glob
 
 from six.moves import _thread
 
-from mmpy_bot import settings
-from mmpy_bot.dispatcher import MessageDispatcher
-from mmpy_bot.mattermost import MattermostClient
-from mmpy_bot.scheduler import schedule
+from M_sugg_bot import settings
+from M_sugg_bot.dispatcher import MessageDispatcher
+from M_sugg_bot.mattermost import MattermostClient
+from M_sugg_bot.scheduler import schedule
 
 logger = logging.getLogger(__name__)
 
@@ -67,7 +67,7 @@ class PluginsManager(object):
             if hasattr(settings, 'PLUGINS'):
                 self.plugins = settings.PLUGINS
             if self.plugins == []:
-                self.plugins.append('mmpy_bot.plugins')
+                self.plugins.append('M_sugg_bot.plugins')
 
         for plugin in self.plugins:
             self._load_plugins(plugin)

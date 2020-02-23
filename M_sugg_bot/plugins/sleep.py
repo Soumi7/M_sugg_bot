@@ -2,7 +2,7 @@
 
 import time
 
-from mmpy_bot.bot import respond_to
+from M_sugg_bot.bot import respond_to
 
 
 @respond_to('sleep (.*)')

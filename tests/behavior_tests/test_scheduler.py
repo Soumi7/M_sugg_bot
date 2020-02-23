@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from tests.behavior_tests.fixture import driver  # noqa: F401
 
-from mmpy_bot import settings
+from M_sugg_bot import settings
 
 
 def test_bot_reply_specific_time(driver):  # noqa: F811

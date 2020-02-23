@@ -10,8 +10,8 @@ import re
 
 from six import iteritems
 
-from mmpy_bot.utils import WorkerPool
-from mmpy_bot import settings
+from M_sugg_bot.utils import WorkerPool
+from M_sugg_bot import settings
 
 logger = logging.getLogger(__name__)
 

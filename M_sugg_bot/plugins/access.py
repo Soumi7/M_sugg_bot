@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 
-from mmpy_bot.utils import allow_only_direct_message
-from mmpy_bot.utils import allowed_users
-from mmpy_bot.bot import respond_to
+from M_sugg_bot.utils import allow_only_direct_message
+from M_sugg_bot.utils import allowed_users
+from M_sugg_bot.bot import respond_to
 
 
 @respond_to('^admin$')

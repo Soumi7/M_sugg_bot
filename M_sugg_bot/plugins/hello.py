@@ -13,8 +13,8 @@ from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import SGD
 import random
 
-from mmpy_bot.bot import listen_to
-from mmpy_bot.bot import respond_to
+from M_sugg_bot.bot import listen_to
+from M_sugg_bot.bot import respond_to
 
 
 @respond_to('hello$', re.IGNORECASE)

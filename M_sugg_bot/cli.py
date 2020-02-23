@@ -2,7 +2,7 @@
 import sys
 import logging
 
-from mmpy_bot import bot, settings
+from M_sugg_bot import bot, settings
 
 
 def main():
