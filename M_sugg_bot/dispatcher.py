@@ -173,7 +173,7 @@ class Message(object):
     channels = {}
 
     def __init__(self, client, body, pool):
-        from mmpy_bot.bot import PluginsManager
+        from M_sugg_bot.bot import PluginsManager
 
         self._plugins = PluginsManager()
         self._client = client
