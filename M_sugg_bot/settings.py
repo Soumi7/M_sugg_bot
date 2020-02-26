@@ -5,7 +5,7 @@ import os
 DEBUG = False
 
 PLUGINS = [
-    'mmpy_bot.plugins',
+    'M_sugg_bot.plugins',
 ]
 PLUGINS_ONLY_DOC_STRING = False
 
