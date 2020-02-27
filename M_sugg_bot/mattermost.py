@@ -313,4 +313,89 @@ class MattermostClient(object):
             else:
                 logger.info('reconnecting websocket ... succeeded')
 
-    
+    // GetAllUsers returns all users
+	def GetAllUsers() (map[string]*model.User, *model.AppError) :
+		allUsers = make(map[string]*model.User)
+		teamUsers, err = self.getTeamUsers()
+	if err != None
+		return(None, err)
+	
+	for _, users = range teamUsers 
+		for _, user in range users 
+			allUsers[user.Id] = user
+		
+	
+		return (allUsers, nil)
+
+
+	// GetAllChannels returns all channels
+	def GetAllChannels() (map[string]*model.Channel, *model.AppError): 
+		allChannels = make(map[string]*model.Channel)
+		teamUsers, err = self.getTeamUsers()
+		if err != nil 
+			return(nil, err)
+	
+		for team, users = range teamUsers 
+			for _, user = range users 
+				channels, err = self.api.GetChannelsForTeamForUser(team, user.Id, true)
+				if err != nil 
+					return(nil, err)
+			
+				for _, channel = range channels 
+					allChannels[channel.Id] = channel
+			
+		
+	
+		return allChannels, nil
+
+
+	// GetAllPublicChannelsForUser returns all public channels for user
+	def GetAllPublicChannelsForUser(userID string) (map[string]*model.Channel, *model.AppError) :
+		allPublicChannels := make(map[string]*model.Channel)
+		teams, err := self.api.GetTeamsForUser(userID)
+
+		if err != nil 
+			return (nil, err)
+		
+		for _, team := range teams 
+			perPage := 100
+			for page := 0; ; page+=1 
+				channelsForTeam, err := p.API.GetPublicChannelsForTeam(team.Id, page, perPage)
+				if err != nil 
+					return nil, err
+				
+				if len(channelsForTeam) == 0 
+					break
+				
+				for _, channel := range channelsForTeam 
+					allPublicChannels[channel.Id] = channel
+			
+		
+	
+		return allPublicChannels, nil
+
+
+	// getTeamUsers returns slice of users for every team
+	def getTeamUsers() (map[string][]*model.User, *model.AppError): 
+		teamUsers := make(map[string][]*model.User)
+		teams, err := self.api.GetTeams()
+		if err != nil 
+			return(nil, err)
+	
+		for _, team = range teams 
+			page := 0
+			perPage := 100
+			for 
+				users, err := self.api.GetUsersInTeam(team.Id, page, perPage)
+				if err != nil 
+					return (nil, err)
+			
+				if len(users) == 0 
+					break
+			
+				teamUsers[team.Id] = append(teamUsers[team.Id], users...)
+				page+=1
+		
+	
+		return teamUsers, nil
+
