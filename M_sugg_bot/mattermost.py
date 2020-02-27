@@ -32,7 +32,7 @@ class MattermostAPI(object):
         return self.post(
             '/reactions',
             {
-                'user': user_id,
+                'user_id': user_id,
                 'post_id': post_id,
                 'emoji_name': emoji_name,
             })
